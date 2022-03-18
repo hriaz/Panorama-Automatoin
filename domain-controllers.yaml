@@ -1,3 +1,13 @@
-Test-One 10.10.10.11
-Test-Two 10.10.10.12
-Test-Three 10.10.10.13
+Address-Groups:
+  - domain-controllers:
+      - tag: DC
+      - list:
+          - Test-One 10.10.10.11
+          - Test-Two 10.10.10.12
+          - Test-Three 10.10.10.13
+         
+  - sante-fe-network:
+      - tag: SFN
+      - list:
+          - sante-One 20.10.10.11
+          - sante-Two 20.10.10.12
