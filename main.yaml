@@ -1,0 +1,14 @@
+---
+- name : Address Group Object Modification
+  hosts: localhost
+  gather_facts: false
+  connection: network_cli
+
+
+- Tasks:
+  - name: Create/Update Address Group Object 'Domain-Controllers'
+    panos_address_group:
+      provider: '{{ provider }}'
+      name: 'Domain-Controllers'
+      static_value: ['Test-One', 'Test-Three']
+      tag: ['DC']
