@@ -10,5 +10,5 @@
     panos_address_group:
       provider: '{{ provider }}'
       name: 'Domain-Controllers'
-      static_value: ['Test-One', 'Test-Two']
+      static_value: ['Test-One', 'Test-Two', 'Test-Three']
       tag: ['DC']
