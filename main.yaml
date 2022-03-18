@@ -12,3 +12,4 @@
       name: 'Domain-Controllers'
       static_value: ['Test-One', 'Test-Two', 'Test-Three']
       tag: ['DC']
+    with_items: {{ Address-Groups }}
