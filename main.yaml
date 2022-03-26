@@ -13,11 +13,11 @@
       msg: '{{ item}}'
     with_inventory_hostnames: 
       - domain-controllers
-    register: hosts
+    register: host
     
   - name: print hosts
     debug:
-      var: '{{ hosts}}'
+      msg: '{{ host}}'
     
  
   - name: Create Devices list
