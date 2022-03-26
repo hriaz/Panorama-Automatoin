@@ -6,7 +6,7 @@
   collections:
     - paloaltonetworks.panos
     
-  Tasks:
+  tasks:
 
   - name: Iterate over the hosts
     debug:
