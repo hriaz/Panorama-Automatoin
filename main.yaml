@@ -1,6 +1,6 @@
 ---
 - name : Address Group Object Modification
-  hosts: '{{ target | default("panorama") }}'
+  hosts: panorama
   gather_facts: false
   connection: network_cli
   collections:
