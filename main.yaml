@@ -20,7 +20,7 @@
       var: '{{ hosts.stdout[0]}}'
     
  
- - name: Create Devices list
+  - name: Create Devices list
     set_fact: 
       devices: hosts.hostnames
       
