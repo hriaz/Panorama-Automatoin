@@ -19,7 +19,7 @@
     set_fact: 
       devices: hosts.hostnames
       
-  - name: Create/Modify Address Group Object 'Domain-Controllers'
+  - name: Create/Modify Address Group Object Domain-Controllers
     panos_address_group:
       provider: '{{ provider }}'
       name: 'Domain-Controllers'
