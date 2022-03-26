@@ -1,7 +1,0 @@
-[panorama]
-panorama ansible_host=157.206.146.196
-
-[domain-controllers]
-Test-One
-Test-Two
-Test-Three
