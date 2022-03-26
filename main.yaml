@@ -20,12 +20,12 @@
     
   - name: print hosts
     debug:
-      msg: '{{ host}}'
+      msg: '{{ host.results}}'
     
  
   - name: Create Devices list
     set_fact: 
-      devices: hosts.hostnames
+      devices1: hosts.hostnames
       
   - name: Create/Modify Address Group Object Domain-Controllers
     panos_address_group:
