@@ -15,10 +15,10 @@
     set_fact:
       devices: "{{ devices | default(omit) + [item]}}"
     with_inventory_hostnames: 
-      - all
+      - domain-controllers
     register: host
     
-  - name: print hosts
+  - name: print hosts list
     debug:
       msg: '{{ devices}}'
     
