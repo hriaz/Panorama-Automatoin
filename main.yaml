@@ -1,4 +1,4 @@
-ce---
+---
 - name : Address Group Object Modification
   hosts: localhost
   gather_facts: false
