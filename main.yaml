@@ -1,4 +1,4 @@
----
+ce---
 - name : Address Group Object Modification
   hosts: localhost
   gather_facts: false
@@ -20,7 +20,7 @@
     
   - name: print hosts
     debug:
-      msg: '{{ host.results}}'
+      msg: '{{ devices}}'
     
  
   - name: Create Devices list
