@@ -1,15 +1,51 @@
 ---
 - name : Address Group Object Modification
-  hosts: localhost
+  hosts: '{{ target | default("panorama") }}'
   gather_facts: false
   connection: network_cli
+  collections:
+    - paloaltonetworks.panos
+    
+  Tasks:
 
-
-- Tasks:
-  - name: Create/Update Address Group Object 'Domain-Controllers'
+  - name: Iterate over the hosts
+    debug:
+      msg: {{ item}}
+    with_inventory_hostnames: 
+      - domain-controllers
+    register: hosts
+    
+  - name: Create Devices list
+    set_fact: 
+      devices: hosts.hostnames
+      
+  - name: Create/Modify Address Group Object 'Domain-Controllers'
     panos_address_group:
       provider: '{{ provider }}'
       name: 'Domain-Controllers'
-      static_value: ['Test-One', 'Test-Two', 'Test-Three']
+      static_value: devices
+      device_group: '{{device_group | default(omit)}}'
       tag: ['DC']
-    with_items: {{ Address-Groups }}
+    register: result
+    
+  - name: Assert Modify was successful
+    assert: 
+      that:
+        - result is success
+        - result is changed
+        
+  - name: Commit the Changes
+    panos_commit: 
+      provider: {{provider}}
+    register: result
+    
+  - name: Assert Commit was successful
+    assert: 
+      that:
+        - result is success
+    
+    
+     
+      
+    
+    
