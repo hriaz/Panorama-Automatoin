@@ -15,7 +15,12 @@
       - domain-controllers
     register: hosts
     
-  - name: Create Devices list
+  - name: print hosts
+    debug:
+      var: '{{ hosts.stdout[0]}}'
+    
+ 
+ - name: Create Devices list
     set_fact: 
       devices: hosts.hostnames
       
