@@ -1,8 +1,8 @@
 ---
 - name : Address Group Object Modification
-  hosts: panorama
+  hosts: localhost
   gather_facts: false
-  connection: network_cli
+  connection: local
   collections:
     - paloaltonetworks.panos
     
