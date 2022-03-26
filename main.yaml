@@ -10,7 +10,7 @@
 
   - name: Iterate over the hosts
     debug:
-      msg: {{ item}}
+      msg: '{{ item}}'
     with_inventory_hostnames: 
       - domain-controllers
     register: hosts
@@ -36,7 +36,7 @@
         
   - name: Commit the Changes
     panos_commit: 
-      provider: {{provider}}
+      provider: '{{provider}}'
     register: result
     
   - name: Assert Commit was successful
