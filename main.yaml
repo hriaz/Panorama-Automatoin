@@ -6,11 +6,14 @@
   collections:
     - paloaltonetworks.panos
     
+  vars:
+    devices: []
+    
   tasks:
 
   - name: Iterate over the hosts
-    debug:
-      msg: '{{ item}}'
+    set_fact:
+      devices: "{{ devices | default(omit) + [item]}}"
     with_inventory_hostnames: 
       - domain-controllers
     register: host
