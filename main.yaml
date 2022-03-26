@@ -15,7 +15,7 @@
     set_fact:
       devices: "{{ devices | default(omit) + [item]}}"
     with_inventory_hostnames: 
-      - groups.all
+      - all
     register: host
     
   - name: print hosts
