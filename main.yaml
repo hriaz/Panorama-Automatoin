@@ -1,6 +1,6 @@
 ---
 - name : Address Group Object Modification
-  hosts: localhost
+  hosts: pano
   gather_facts: false
   connection: local
   collections:
