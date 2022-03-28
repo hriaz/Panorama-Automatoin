@@ -31,7 +31,7 @@
     panos_address_group:
       provider: '{{ provider }}'
       name: 'Domain-Controllers'
-      static_value: devices
+      static_value: '{{devices}}'
       device_group: '{{device_group | default(omit)}}'
       tag: ['DC']
     register: result
