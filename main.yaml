@@ -39,6 +39,9 @@
       name: 'DomainControllers'
       static_value: '{{devices}}'
       device_group: 'shared'
+      username: ansible
+      password: 12Qwaszx;3456
+      api_key: LUFRPT1oTm14UkE1YlJzN2xLR05GQzN6OCtGUkQwUjg9cWFLZEQ3VFArQWlUaHlYZ2h4UEtEcXhFTm4rYVV0WExTWkVrY2R2elhhUU50SlNRNzRjd3FNMnVGY3kwRXlieXRBbDd6djlmbjRQQjFMc3dMRlphTWc9PQ==
     register: result
     
   - name: Assert Modify was successful
