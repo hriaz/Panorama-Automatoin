@@ -31,9 +31,9 @@ jobs:
       - name: Play Ansible Playbook
         uses: arillso/action.playbook@master
         with:
-          playbook: main.yaml
+          playbook: ${{GITHUB_WORKSPACE}}/main.yaml
           inventory: Inventory/hosts.ini
-          galaxy_file: requirements.yaml
+          galaxy_file: ${{GITHUB_WORKSPACE}}/requirements.yaml
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
           ANSIBLE_DEPRECATION_WARNINGS: 'false'
