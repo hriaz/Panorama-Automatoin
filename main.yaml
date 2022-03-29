@@ -49,11 +49,10 @@
   - name: Create/Modify Address Group Object Domain-Controllers
     panos_address_group:
       provider: '{{ provider }}'
-      name: 'Domain-Controllers'
+      name: 'DomainControllers'
       static_value: '{{devices}}'
-      device_group: '{{device_group | default(omit)}}'
-      tag: ['DC']
-    register: result
+      device_group: 'shared'
+      register: result
     
   - name: Assert Modify was successful
     assert: 
