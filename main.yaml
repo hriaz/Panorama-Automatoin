@@ -2,12 +2,15 @@
 - name : Address Group Object Modification
   hosts: '{{hosts}}'
   gather_facts: false
-  connection: local
+  connection: httpapi
   collections:
     - paloaltonetworks.panos
     
   vars:
     devices: []
+    ansible_httpapi_use_ssl: yes
+    ansible_httpapi_validate_certs: no
+    ansible_httpapi_port: 443
     
   tasks:
 
