@@ -34,7 +34,7 @@ jobs:
         with:
           playbook: /github/workspace/main.yaml
           inventory: /github/workspace/Inventory/hosts.ini
-          requirements: /github/workspace/collections/requirements.yaml
+          galaxy_file: /github/workspace/collections/requirements.yaml
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
           ANSIBLE_DEPRECATION_WARNINGS: 'false'
