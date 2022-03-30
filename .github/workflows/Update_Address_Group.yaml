@@ -13,6 +13,7 @@ on:
     branches: [ main ]
     paths: 
       - domain-controllers.yaml
+  workflow_dispatch:
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -31,9 +32,9 @@ jobs:
       - name: Play Ansible Playbook
         uses: arillso/action.playbook@master
         with:
-          playbook: ${{GITHUB_WORKSPACE}}/main.yaml
+          playbook: /gtihub/workspace/main.yaml
           inventory: Inventory/hosts.ini
-          galaxy_file: ${{GITHUB_WORKSPACE}}/requirements.yaml
+          galaxy_file: /gtihub/workspace/requirements.yaml
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
           ANSIBLE_DEPRECATION_WARNINGS: 'false'
