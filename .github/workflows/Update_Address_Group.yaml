@@ -35,6 +35,7 @@ jobs:
           playbook: /github/workspace/main.yaml
           inventory: /github/workspace/Inventory/hosts.ini
           galaxy_file: /github/workspace/collections/requirements.yaml
+          extra_vars: "hosts=localhost"
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
           ANSIBLE_DEPRECATION_WARNINGS: 'false'
