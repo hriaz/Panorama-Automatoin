@@ -33,7 +33,7 @@ jobs:
         uses: arillso/action.playbook@master
         with:
           playbook: /gtihub/workspace/main.yaml
-          inventory: Inventory/hosts.ini
+          inventory: /gtihub/workspace/Inventory/hosts.ini
           galaxy_file: /gtihub/workspace/requirements.yaml
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
