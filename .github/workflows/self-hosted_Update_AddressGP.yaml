@@ -30,4 +30,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Play Ansible Playbook
-        run: ansible-playbook --inventory /github/workspace/Inventory/hosts.ini --extra-vars "hosts=localhost"  /github/workspace/main.yaml
+        run: ansible-playbook --inventory /Inventory/hosts.ini --extra-vars "hosts=localhost" main.yaml
