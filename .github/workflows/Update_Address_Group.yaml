@@ -9,10 +9,12 @@ on:
     branches: [ main ]
     paths: 
       - domain-controllers.yaml
+      - Inventory/hosts.ini
   pull_request:
     branches: [ main ]
     paths: 
       - domain-controllers.yaml
+      - Inventory/hosts.ini
   workflow_dispatch:
 
 
