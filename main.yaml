@@ -2,7 +2,7 @@
 - name : Address Group Object Modification
   hosts: '{{hosts}}'
   gather_facts: false
-  connection: httpapi
+  connection: local  #httpapi
   collections:
     - paloaltonetworks.panos
     
