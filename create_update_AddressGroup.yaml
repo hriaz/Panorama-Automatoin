@@ -1,4 +1,3 @@
----
   - name: Iterate over the hosts
     set_fact:
       devices: "{{ devices | default(omit) + [item]}}"
