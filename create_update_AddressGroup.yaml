@@ -1,9 +1,8 @@
  - name: Iterate over the hosts
     set_fact:
       devices: "{{ devices | default(omit) + [item]}}"
-    with_inventory_hostnames: 
-      - domain-controllers
-    register: host
+    with_inventory_hostnames: '{{ address_group }}'
+    register: addresses
     
   - name: print hosts list
     debug:
@@ -12,7 +11,7 @@
   - name: Create/Modify Address Group Object Domain-Controllers
     panos_address_group:
       provider: '{{ provider }}'
-      name: 'DomainControllers'
+      name: '{{ address_group }}'
       static_value: '{{devices}}'
       device_group: 'shared'
       username: ansible
