@@ -14,10 +14,13 @@
     ansible_httpapi_port: 443
     
   tasks:    
+
+  - debug:
+      var: groups.keys()
  
   - name: Create/Update Address Group objects 
     include_tasks: create_update_AddressGroup.yaml
-    loop: '{{ group.keys()}}'
+    loop: "{{ groups.keys()| reject('search','all') | reject('search','ungrouped') | list}}"
     loop_control:
       loop_var: address_group
       

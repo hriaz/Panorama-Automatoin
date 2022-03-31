@@ -1,4 +1,5 @@
- - name: Iterate over the hosts
+---
+  - name: Iterate over the hosts
     set_fact:
       devices: "{{ devices | default(omit) + [item]}}"
     with_inventory_hostnames: '{{ address_group }}'
