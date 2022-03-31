@@ -1,4 +1,4 @@
-name: Update Address Group
+name: Update AddressGpObject
 
 # Controls when the workflow will run
 on:
