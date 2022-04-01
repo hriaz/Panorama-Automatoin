@@ -12,7 +12,7 @@
     debug:
       msg: '{{ groups[address_group] }}'
     
-  - name: Create/Modify Address Group Object Domain-Controllers
+  - name: "Create/Modify {{ address_group }} Address Group Object"
     panos_address_group:
       provider: '{{ provider }}'
       name: '{{ address_group }}'
