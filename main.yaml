@@ -2,7 +2,7 @@
 - name : Address Group Object Modification
   hosts: '{{hosts}}'
   gather_facts: false
-  connection: httpapi
+  connection: local  #httpapi
   collections:
     - paloaltonetworks.panos
     
@@ -13,43 +13,19 @@
     ansible_httpapi_validate_certs: no
     ansible_httpapi_port: 443
     
-  tasks:
+  tasks:    
 
-  - name: Iterate over the hosts
-    set_fact:
-      devices: "{{ devices | default(omit) + [item]}}"
-    with_inventory_hostnames: 
-      - domain-controllers
-    register: host
-    
-  - name: print hosts list
-    debug:
-      msg: '{{ devices}}'
-    
+  - debug:
+      var: groups.keys()
  
-  - name: Create Devices list
-    set_fact: 
-      devices1: hosts.hostnames
+  - name: Create/Update Address Group objects 
+    include_tasks: create_update_AddressGroup.yaml
+    loop: "{{ groups.keys()| reject('search','all') | reject('search','ungrouped') | list}}"
+    loop_control:
+      loop_var: address_group
       
 
       
-  - name: Create/Modify Address Group Object Domain-Controllers
-    panos_address_group:
-      provider: '{{ provider }}'
-      name: 'DomainControllers'
-      static_value: '{{devices}}'
-      device_group: 'shared'
-      username: ansible
-      password: 12Qwaszx;3456
-      api_key: LUFRPT1oTm14UkE1YlJzN2xLR05GQzN6OCtGUkQwUjg9cWFLZEQ3VFArQWlUaHlYZ2h4UEtEcXhFTm4rYVV0WExTWkVrY2R2elhhUU50SlNRNzRjd3FNMnVGY3kwRXlieXRBbDd6djlmbjRQQjFMc3dMRlphTWc9PQ==
-    register: result
-    
-  - name: Assert Modify was successful
-    assert: 
-      that:
-        - result is success
-        - result is changed
-        
   - name: Commit the Changes
     panos_commit: 
       provider: '{{provider}}'

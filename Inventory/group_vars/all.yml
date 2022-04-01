@@ -6,3 +6,4 @@ provider:
   
 ansible_python_interpreter: '{{ ansible_playbook_python }}'
 
+device_group: 'shared'

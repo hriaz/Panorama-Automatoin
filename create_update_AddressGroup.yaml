@@ -1,27 +1,27 @@
- - name: Iterate over the hosts
+  - name: Initialize the Devices list
+    set_fact:
+      devices: []
+     
+  - name: Iterate over the hosts
     set_fact:
       devices: "{{ devices | default(omit) + [item]}}"
-    with_inventory_hostnames: 
-      - domain-controllers
-    register: host
+    with_inventory_hostnames: '{{ address_group }}'
+    register: addresses
     
   - name: print hosts list
     debug:
-      msg: '{{ devices}}'
+      msg: '{{ groups[address_group] }}'
     
   - name: Create/Modify Address Group Object Domain-Controllers
     panos_address_group:
       provider: '{{ provider }}'
-      name: 'DomainControllers'
+      name: '{{ address_group }}'
       static_value: '{{devices}}'
-      device_group: 'shared'
-      username: ansible
-      password: 12Qwaszx;3456
-      api_key: LUFRPT1oTm14UkE1YlJzN2xLR05GQzN6OCtGUkQwUjg9cWFLZEQ3VFArQWlUaHlYZ2h4UEtEcXhFTm4rYVV0WExTWkVrY2R2elhhUU50SlNRNzRjd3FNMnVGY3kwRXlieXRBbDd6djlmbjRQQjFMc3dMRlphTWc9PQ==
+      device_group: '{{device_group}}'
     register: result
     
   - name: Assert Modify was successful
     assert: 
       that:
         - result is success
-        - result is changed
+  #      - result is changed
