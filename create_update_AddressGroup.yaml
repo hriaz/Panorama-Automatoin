@@ -1,8 +1,8 @@
- - name: Initialize the Devices list
-   set_fact:
-     devices: []
+  - name: Initialize the Devices list
+    set_fact:
+      devices: []
      
- - name: Iterate over the hosts
+  - name: Iterate over the hosts
     set_fact:
       devices: "{{ devices | default(omit) + [item]}}"
     with_inventory_hostnames: '{{ address_group }}'
