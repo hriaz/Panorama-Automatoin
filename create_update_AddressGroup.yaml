@@ -10,7 +10,7 @@
     
   - name: print hosts list
     debug:
-      msg: '{{ devices}}'
+      msg: '{{ groups[address_group] }}'
     
   - name: Create/Modify Address Group Object Domain-Controllers
     panos_address_group:
