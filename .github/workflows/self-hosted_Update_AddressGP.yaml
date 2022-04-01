@@ -31,13 +31,16 @@ jobs:
       # Runs a single command using the runners shell
    #   - name: Play Ansible Playbook
    #     run: ansible-playbook --inventory Inventory/hosts.ini --extra-vars "hosts=localhost" main.yaml
-      - name: Call AWX REST API to update the Project
-        env:
-           awx_cred: ${{ secrets.AWX_USER }}
-           awx_pass: ${{ secrets.AWX_PASSWORD }}
-        run: curl -X POST http://awx.net.sanofi-aventis.com/api/v2/projects/28/update/ -u "%awx_cred%":"%awx_pass%"  
-        shell: cmd
+   #   - name: Call AWX REST API to update the Project
+  #      env:
+  #         awx_cred: ${{ secrets.AWX_USER }}
+  #         awx_pass: ${{ secrets.AWX_PASSWORD }}
+  #      run: curl -X POST http://awx.net.sanofi-aventis.com/api/v2/projects/28/update/ -u "%awx_cred%":"%awx_pass%"  
+  #      shell: cmd
         
       - name: Call AWX REST API to launch the Job
-        run: curl -X POST http://awx.net.sanofi-aventis.com/api/v2/job_templates/31/launch/ -u yasser:Welcome2AWX-S!
+        env:
+          awx_cred: ${{ secrets.AWX_USER }}
+          awx_pass: ${{ secrets.AWX_PASSWORD }}
+        run: curl -X POST http://awx.net.sanofi-aventis.com/api/v2/job_templates/31/launch/ -u "%awx_cred%":"%awx_pass%"
         shell: cmd
