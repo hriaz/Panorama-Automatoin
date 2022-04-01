@@ -21,7 +21,7 @@ jobs:
   # This workflow contains a single job called "Run-AddressGP-Automation"
   Run-AddressGP-Automation:
     # The type of runner that the job will run on
-    runs-on: [self-hosted, windows]
+    runs-on: [self-hosted, ansibleJumpWind]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
