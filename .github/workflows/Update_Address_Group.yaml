@@ -9,10 +9,12 @@ on:
     branches: [ main ]
     paths: 
       - domain-controllers.yaml
+ #     - Inventory/hosts.ini
   pull_request:
     branches: [ main ]
     paths: 
       - domain-controllers.yaml
+#      - Inventory/hosts.ini
   workflow_dispatch:
 
 
@@ -21,7 +23,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
