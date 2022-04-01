@@ -32,7 +32,10 @@ jobs:
    #   - name: Play Ansible Playbook
    #     run: ansible-playbook --inventory Inventory/hosts.ini --extra-vars "hosts=localhost" main.yaml
       - name: Call AWX REST API to update the Project
-        run: curl -X POST http://awx.net.sanofi-aventis.com/api/v2/projects/28/update/ -u yasser:Welcome2AWX-S! 
+        env:
+           awx_cred: ${{ AWX_USER }}
+           awx_pass: ${{ AWX_PASSWORD }}
+        run: curl -X POST http://awx.net.sanofi-aventis.com/api/v2/projects/28/update/ -u "%awx_cred%":"%awx_pass%"  
         shell: cmd
         
       - name: Call AWX REST API to launch the Job
