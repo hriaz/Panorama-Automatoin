@@ -1,6 +1,6 @@
-   - name: Initialize the Devices list
-    set_fact:
-      devices: []
+ - name: Initialize the Devices list
+   set_fact:
+     devices: []
      
  - name: Iterate over the hosts
     set_fact:
